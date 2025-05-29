@@ -1,29 +1,62 @@
-# /home/uzumaki007/ai_code_review_agent/src/reporter.py
+# src/reporter.py
+import json
+import difflib
 import os
-import jinja2
-import matplotlib.pyplot as plt
+from weasyprint import HTML
 
 class Reporter:
-    def generate_report(self, issues, dependencies, config, report_path, input_path, output_path):
-        # Get project root
-        project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        template_path = os.path.join(project_root, "template.html")
+    def generate_report(self, results, report_path, config):
+        """Generate HTML and PDF reports with diffs and metrics."""
+        report_data = []
+        for result in results:
+            if result:
+                diff = self._generate_diff(result["original"], result["improved"])
+                metrics = self._calculate_metrics(result["original"], result["improved"])
+                report_data.append({
+                    "file": result["file"],
+                    "category": result["category"],
+                    "issues": result["issues"],
+                    "diff": diff,
+                    "metrics": metrics
+                })
 
-        # Load template
-        with open(template_path, "r") as f:
-            template = jinja2.Template(f.read())
-
-        # Generate chart
-        plt.figure()
-        plt.bar(["Issues", "Dependencies"], [len(issues), len(dependencies)])
-        plt.xlabel("Metrics")
-        plt.ylabel("Count")
-        plt.title("Code Analysis Summary")
-        chart_path = os.path.join(report_path, "complexity_chart.png")
-        plt.savefig(chart_path)
-        plt.close()
-
-        # Render report
-        os.makedirs(report_path, exist_ok=True)
+        # HTML report
+        html_content = f"""
+        <html>
+        <head><title>AI Code Review Report</title></head>
+        <body>
+        <h1>Code Review Report</h1>
+        {''.join([f'''
+        <h2>{data['file']} ({data['category']})</h2>
+        <h3>Issues</h3>
+        <ul>{''.join([f'<li>{issue}</li>' for issue in data['issues']])}</ul>
+        <h3>Diff</h3>
+        <pre>{data['diff']}</pre>
+        <h3>Metrics</h3>
+        <p>{json.dumps(data['metrics'], indent=2)}</p>
+        ''' for data in report_data])}
+        </body>
+        </html>
+        """
         with open(os.path.join(report_path, "report.html"), "w") as f:
-            f.write(template.render(issues=issues, dependencies=dependencies))
+            f.write(html_content)
+
+        # PDF report
+        HTML(string=html_content).write_pdf(os.path.join(report_path, "report.pdf"))
+
+        # JSON report
+        with open(os.path.join(report_path, "report.json"), "w") as f:
+            json.dump(report_data, f, indent=2)
+
+    def _generate_diff(self, original, improved):
+        return '\n'.join(difflib.unified_diff(
+            original.splitlines(), improved.splitlines(),
+            lineterm=""
+        ))
+
+    def _calculate_metrics(self, original, improved):
+        return {
+            "original_lines": len(original.splitlines()),
+            "improved_lines": len(improved.splitlines()),
+            "complexity_reduction": len(original) - len(improved)
+        }
