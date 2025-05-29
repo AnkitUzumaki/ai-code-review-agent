@@ -1,0 +1,10 @@
+pylint
+flake8
+bandit
+black
+pyyaml
+jinja2
+matplotlib
+radon
+tqdm
+ruff

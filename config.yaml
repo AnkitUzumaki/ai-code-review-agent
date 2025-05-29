@@ -1,0 +1,10 @@
+review_priorities:
+  security: high
+  performance: medium
+  readability: high
+exclude_files:
+  - "tests/*"
+  - "*.pyc"
+style_rules:
+  max_line_length: 88
+
