@@ -1,0 +1,93 @@
+[
+  {
+    "file": "input/test.py",
+    "category": "test",
+    "issues": [
+      "input/test.py:1:C0114 Missing module docstring",
+      "input/test.py:1:C0116 Missing function or method docstring",
+      "input/test.py:3:W0612 Unused variable 'password'",
+      "input/test.py:B105:LOW:Possible hardcoded password: 'secret123'",
+      "Complexity for input/test.py: [Function(name='greet', lineno=1, col_offset=0, endline=3, is_method=False, classname=None, closures=[], complexity=1)]",
+      "Performance profile for input/test.py: 0.05s"
+    ],
+    "diff": "--- \n+++ \n@@ -1,3 +1,6 @@\n+\"\"\"Module docstring\"\"\"\n+\n def greet(name):\n-    print(\"Hello, \" + name)\n-    password = \"secret123\"\n+    \"\"\"Docstring for greet\"\"\"\n+    print(f'Hello, {name}')\n+    password = os.getenv(\"password\".upper())",
+    "metrics": {
+      "original_lines": 3,
+      "improved_lines": 6,
+      "complexity_reduction": -72
+    }
+  },
+  {
+    "file": "input/test3.py",
+    "category": "test",
+    "issues": [
+      "input/test3.py:1:C0114 Missing module docstring",
+      "input/test3.py:1:C0116 Missing function or method docstring",
+      "input/test3.py:2:C0415 Import outside toplevel (requests)",
+      "input/test3.py:3:W3101 Missing timeout argument for method 'requests.get' can cause your program to hang indefinitely",
+      "input/test3.py:5:R1705 Unnecessary \"elif\" after \"return\", remove the leading \"el\" from \"elif\"",
+      "input/test3.py:10:W0719 Raising too general exception: Exception",
+      "input/test3.py:1:R1710 Either all return statements in a function should return an expression, or none of them should.",
+      "input/test3.py:B113:MEDIUM:Call to requests without timeout",
+      "Complexity for input/test3.py: [Function(name='fetch_data_from_api', lineno=1, col_offset=0, endline=10, is_method=False, classname=None, closures=[], complexity=3)]",
+      "Performance profile for input/test3.py: 0.06s"
+    ],
+    "diff": "--- \n+++ \n@@ -1,10 +1,13 @@\n-def fetch_data_from_api(url, api_key=\"abc123\"):\n+\"\"\"Module docstring\"\"\"\n+\n+def fetch_data_from_api(url, api_key = os.getenv(\"api_key\".upper())):\n+    \"\"\"Docstring for fetch_data_from_api\"\"\"\n     import requests\n-    response = requests.get(url + \"?key=\" + api_key)\n+    response = requests.get(url + '?key=' + api_key)\n     unused_data = response.json()\n     if response.status_code == 200:\n         return response.json()\n     elif response.status_code == 404:\n-        print(\"Error: Resource not found\")\n+        print('Error: Resource not found')\n     else:\n-        raise Exception(\"API request failed with status: \" + str(response.status_code))\n+        raise Exception('API request failed with status: ' + str(response.status_code))",
+    "metrics": {
+      "original_lines": 10,
+      "improved_lines": 13,
+      "complexity_reduction": -90
+    }
+  },
+  {
+    "file": "input/test3.js",
+    "category": "test",
+    "issues": [
+      "ESLint error: [Errno 2] No such file or directory: 'eslint'",
+      "Performance profile for input/test3.js: 0.00s"
+    ],
+    "diff": "",
+    "metrics": {
+      "original_lines": 4,
+      "improved_lines": 4,
+      "complexity_reduction": -1
+    }
+  },
+  {
+    "file": "input/test2.py",
+    "category": "test",
+    "issues": [
+      "input/test2.py:1:C0114 Missing module docstring",
+      "input/test2.py:1:C0116 Missing function or method docstring",
+      "input/test2.py:3:W0612 Unused variable 'very_long_variable_name_to_trigger_line_length_issue'",
+      "input/test2.py:6:C0116 Missing function or method docstring",
+      "Complexity for input/test2.py: [Function(name='calculate_sum', lineno=1, col_offset=0, endline=4, is_method=False, classname=None, closures=[], complexity=1), Function(name='greet_user', lineno=6, col_offset=0, endline=7, is_method=False, classname=None, closures=[], complexity=1)]",
+      "Performance profile for input/test2.py: 0.06s"
+    ],
+    "diff": "--- \n+++ \n@@ -1,7 +1,11 @@\n+\"\"\"Module docstring\"\"\"\n+\n def calculate_sum(a, b):\n+    \"\"\"Docstring for calculate_sum\"\"\"\n     result = a + b\n     very_long_variable_name_to_trigger_line_length_issue = 42\n     return result\n \n def greet_user(name):\n-    print(\"Hello, \" + name + \", welcome!\")\n+    \"\"\"Docstring for greet_user\"\"\"\n+    print(f'Hello, {name}, welcome!')",
+    "metrics": {
+      "original_lines": 7,
+      "improved_lines": 11,
+      "complexity_reduction": -92
+    }
+  },
+  {
+    "file": "input/tests/test_code.py",
+    "category": "test",
+    "issues": [
+      "input/tests/test_code.py:6:C0304 Final newline missing",
+      "input/tests/test_code.py:1:C0114 Missing module docstring",
+      "input/tests/test_code.py:5:C0116 Missing function or method docstring",
+      "input/tests/test_code.py:2:W0611 Unused import pytest",
+      "input/tests/test_code.py:B101:LOW:Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "Complexity for input/tests/test_code.py: [Function(name='test_greet', lineno=5, col_offset=0, endline=5, is_method=False, classname=None, closures=[], complexity=2)]",
+      "Performance profile for input/tests/test_code.py: 0.06s"
+    ],
+    "diff": "--- \n+++ \n@@ -1,6 +1,7 @@\n-# input/tests/test_code.py\n+\"\"\"Module docstring\"\"\"\n import pytest\n from input.test import greet\n \n def test_greet():\n-    assert greet(\"World\") is None  # Print-based function\n+    \"\"\"Docstring for test_greet\"\"\"\n+    assert greet('World') is None",
+    "metrics": {
+      "original_lines": 6,
+      "improved_lines": 7,
+      "complexity_reduction": -8
+    }
+  }
+]
