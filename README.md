@@ -1,20 +1,16 @@
 # AI Code Review Agent
 
-This is an AI-powered code review tool that analyzes Python codebases, identifies issues (syntax errors, security vulnerabilities, style violations, complexity), and generates improved code with formatted output and detailed reports. The tool meets the requirements of a Functional Requirements Document (FRD) for an AI Code Review Agent.
+Automates code review and improvement for Python and JavaScript.
 
-## Features
-- **Input Processing**: Accepts folder paths or ZIP files, categorizes Python files, and parses dependencies.
-- **Code Analysis**: Uses Pylint (syntax), Flake8 (style), Bandit (security), and Radon (complexity).
-- **Code Improvement**: Formats code with Black, replaces hardcoded secrets, and adds docstrings.
-- **Output Generation**: Creates an output folder with improved code and an HTML report with metrics and charts.
-- **Configuration**: Supports user-defined priorities and file exclusions via `config.yaml`.
-- **CLI**: Command-line interface with progress indicators using `tqdm`.
+## Setup
+1. Clone: `git clone https://github.com/AnkitUzumaki/ai-code-review-agent.git`
+2. Install: `pip install -r requirements.txt`
+3. Install ESLint: `npm install -g eslint`
+4. Run: `python src/main.py input/ --output_path output --report_path reports`
 
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/ai_code_review_agent.git
-   cd ai_code_review_agent
-## Documentation
-- [Gaps and Challenges](GAPS_AND_CHALLENGES.md): Details gaps in my skills relative to the FRD and solutions.
-- [Approach and Tools](APPROACH_AND_TOOLS.md): Explains my hands-on coding approach and use of internet resources to resolve doubts.
+## Web Interface
+1. Start API: `python src/api.py`
+2. Open `web/index.html` in a browser.
+
+## CI
+Check GitHub Actions: `https://github.com/AnkitUzumaki/ai-code-review-agent/actions`

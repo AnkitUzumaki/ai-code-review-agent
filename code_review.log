@@ -1,0 +1,110 @@
+INFO:root:Starting review for input/
+INFO:root:Original test results: ============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.0.0, pluggy-1.6.0 -- /home/uzumaki007/ai_code_review_agent/.venv1/bin/python
+cachedir: .pytest_cache
+rootdir: /home/uzumaki007/ai_code_review_agent
+collecting ... collected 1 item
+
+input/tests/test_code.py::test_greet PASSED                              [100%]
+
+=============================== warnings summary ===============================
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:967
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:967
+  /home/uzumaki007/ai_code_review_agent/.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:967: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    inlocs = ast.Compare(ast.Str(name.id), [ast.In()], [locs])
+
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:970
+  /home/uzumaki007/ai_code_review_agent/.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:970: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    expr = ast.IfExp(test, self.display(name), ast.Str(name.id))
+
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:1080
+  /home/uzumaki007/ai_code_review_agent/.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:1080: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    syms.append(ast.Str(sym))
+
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:1082
+  /home/uzumaki007/ai_code_review_agent/.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:1082: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    expls.append(ast.Str(expl))
+
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:831
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:831
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:831
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:831
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:831
+  /home/uzumaki007/ai_code_review_agent/.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:831: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    keys = [ast.Str(key) for key in current.keys()]
+
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:941
+  /home/uzumaki007/ai_code_review_agent/.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:941: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    assertmsg = ast.Str("")
+
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:943
+  /home/uzumaki007/ai_code_review_agent/.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:943: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    template = ast.BinOp(assertmsg, ast.Add(), ast.Str(explanation))
+
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:955
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:955
+  /home/uzumaki007/ai_code_review_agent/.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:955: DeprecationWarning: ast.NameConstant is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    clear = ast.Assign(variables, ast.NameConstant(None))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 1 passed, 14 warnings in 0.01s ========================
+
+INFO:root:Improved test results: ============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.0.0, pluggy-1.6.0 -- /home/uzumaki007/ai_code_review_agent/.venv1/bin/python
+cachedir: .pytest_cache
+rootdir: /home/uzumaki007/ai_code_review_agent
+collecting ... collected 1 item
+
+output/tests/test_code.py::test_greet PASSED                             [100%]
+
+=============================== warnings summary ===============================
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:697
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:697
+  /home/uzumaki007/ai_code_review_agent/.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:697: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    and isinstance(item.value, ast.Str)
+
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:699
+  /home/uzumaki007/ai_code_review_agent/.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:699: DeprecationWarning: Attribute s is deprecated and will be removed in Python 3.14; use value instead
+    doc = item.value.s
+
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:967
+  /home/uzumaki007/ai_code_review_agent/.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:967: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    inlocs = ast.Compare(ast.Str(name.id), [ast.In()], [locs])
+
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:970
+  /home/uzumaki007/ai_code_review_agent/.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:970: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    expr = ast.IfExp(test, self.display(name), ast.Str(name.id))
+
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:1080
+  /home/uzumaki007/ai_code_review_agent/.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:1080: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    syms.append(ast.Str(sym))
+
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:1082
+  /home/uzumaki007/ai_code_review_agent/.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:1082: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    expls.append(ast.Str(expl))
+
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:831
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:831
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:831
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:831
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:831
+  /home/uzumaki007/ai_code_review_agent/.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:831: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    keys = [ast.Str(key) for key in current.keys()]
+
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:941
+  /home/uzumaki007/ai_code_review_agent/.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:941: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    assertmsg = ast.Str("")
+
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:943
+  /home/uzumaki007/ai_code_review_agent/.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:943: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    template = ast.BinOp(assertmsg, ast.Add(), ast.Str(explanation))
+
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:955
+.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:955
+  /home/uzumaki007/ai_code_review_agent/.venv1/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:955: DeprecationWarning: ast.NameConstant is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    clear = ast.Assign(variables, ast.NameConstant(None))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 1 passed, 16 warnings in 0.01s ========================
+
+INFO:root:Review completed
